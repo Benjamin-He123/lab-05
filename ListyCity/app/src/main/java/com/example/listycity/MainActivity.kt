@@ -1,5 +1,9 @@
 package com.example.listycity
 
+import com.google.firebase.firestore.FirebaseFirestore
+import androidx.compose.runtime.mutableStateListOf
+import com.google.firebase.Firebase
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -26,6 +30,7 @@ class MainActivity : ComponentActivity() {
                         onUpdateCity = { oldCity, updatedCity ->
                             cityRepository.updateCity(oldCity, updatedCity)
                         },
+                        onDelCity = { cityRepository.delCity(it) },
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
